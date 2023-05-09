@@ -74,6 +74,7 @@ func handleRequest(event events.S3Event) {
 				Key:         aws.String(fmt.Sprintf("%v/%v", keyTrimmed, zipFile.Name)),
 				Body:        bytes.NewReader(unzippedFileBytes),
 				ContentType: aws.String(contentType),
+				//ACL:         aws.String("public-read"),
 			}
 
 			// Upload the []byte data as an S3 object
